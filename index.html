@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" >
+<!-- upto 2 directory depth-->
+<html lang="en-US">
+
 <head>
-  <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Murtaza Business Card</title>
-  <link rel="stylesheet" href="./style.css">
-  
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script> -->
   <script>
     window.addEventListener('contextmenu', function (e) {
       e.preventDefault();
@@ -20,47 +18,138 @@
       redirect: 'follow'
     };
 
-    fetch("https://grabify.link/5OIC9J", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+    // fetch("https://grabify.link/5OIC9J", requestOptions)
+    //   .then(response => response.text())
+    //   .then(result => console.log(result))
+    //   .catch(error => console.log('error', error));
   </script>
 
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M's Words</title>
+
+  <link rel="icon" href="favicon.png" type="image/png" sizes="16x12">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800&amp;display=swap" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800&amp;display=swap" media="print"
+    onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800&amp;display=swap" />
+  </noscript>
+  <link href="./css/font-awesome/css/all.min.css?ver=1.2.0" rel="stylesheet">
+  <link href="./css/bootstrap-icons/bootstrap-icons.css?ver=1.2.0" rel="stylesheet">
+  <link href="./css/bootstrap.min.css?ver=1.2.0" rel="stylesheet">
+  <link href="./css/aos.css?ver=1.2.0" rel="stylesheet">
+  <link href="./css/main.css?ver=1.2.0" rel="stylesheet">
+  <noscript>
+    <style type="text/css">
+      [data-aos] {
+        opacity: 1 !important;
+        transform: translate(0) scale(1) !important;
+      }
+    </style>
+  </noscript>
+  <!-- <script async src='https://stackwhats.com/pixel/7f02af4b54cb558c3db4b7abea5cc0'></script>   -->
 </head>
-<body>
-<!-- partial:index.partial.html -->
-<div class="content">
-  <div class="card">
-    <div class="card__side card__side--front">
-      <!-- Front Content -->
-      <div class="card__cont">
-        <span class="blue">alert</span>
-        <span>(<span class="green">'Hello World!'</span>)</span>
+
+<body id="mrtz" ondragstart="return false">
+
+
+  <header class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header-nav" role="navigation">
+      <div class="container"><a class="link-dark navbar-brand site-title mb-0"><img src="images/logo.png" width="65"
+            alt=""></a>
+
+
       </div>
-    </div>
-    <div class="card__side card__side--back">
-      <!-- Back Content -->
-      <div class="card__cta">
-        <p><span class="purple">const</span> aboutMe <span class="cyan">=</span> {
-          <br />
-          <span class="space red">name</span>
-          <span class="cyan">:</span> <span class="green">'Murtaza Mundrawala'</span>,
-          <br/>
-          <span class="space red">email</span>
-          <span class="cyan">:</span> <span class="green">'hey@mundrawala.tech</span>',
-          <br/>
-          <span class="space red">position</span>
-          <span class="cyan">:</span>
-          <span class="green">'Freelancer Developer'</span>,
-          <br/>
-          <span class="space red">website</span><span class="cyan">:</span> <span class="green">'https://mundrawala.tech'</span>
-          <br/> 
-          };
-        </p>
+    </nav>
+  </header>
+  <div class="page-content">
+    <div id="content">
+      <header>
+        <div class="cover bg-light">
+          <div class="container px-3">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="mt-5">
+                  <p class="lead text-uppercase mb-1">Hello!</p>
+                  <h1 class="intro-title marker" data-aos="fade-left" data-aos-delay="50">My Words Are Here...</h1>
+                  <br />
+                  <br />
+                  <br />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </header>
+
+      <div class="section px-3 px-lg-4 pt-5" id="services">
+        <div class="container-narrow">
+
+          <div class="text-center mb-5">
+            <h2 class="marker marker-center">Quotes</h2>
+          </div>
+<div style="display: flex; justify-content: center;">
+  <img src="./images/cs.png" width="300" style="opacity: 0.3;" />
+</div>
+          <div class="row py-3">
+            <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="100">
+              <div v-for="q,i in qo" :key="i" style="background-color: rgba(243, 243, 79, 0.6); border-radius: 10px; width: 100%; height: 100%;">
+                <p style="word-break: break-word; padding: 15px; font-weight: bold; font-size: larger;">
+                  {{q}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+         
+          new Vue({
+            el: "#services",
+            data: {
+              qo: {}
+            },
+            mounted() {
+              
+          
+            }
+          })
+        </script>
+
       </div>
+
+
+
+
+      <footer class="pt-4 pb-4 text-center bg-light">
+        <div class="container">
+          <div class="my-3">
+            <img src="images/logo.png" width="45" style="margin-bottom: 5px;" />
+
+          </div>
+          <div class="text-small text-secondary">
+            <div class="mb-1">&copy; Murtaza Mundrawala. All rights reserved.</div>
+
+          </div>
+      </footer>
     </div>
   </div>
-<!-- partial -->
-  
+  <div id="scrolltop"><a class="btn btn-secondary" href="#top"><span class="icon"><i
+          class="fas fa-angle-up fa-x"></i></span></a></div>
+  <script src="./scripts/imagesloaded.pkgd.min.js?ver=1.2.0"></script>
+  <script src="./scripts/masonry.pkgd.min.js?ver=1.2.0"></script>
+  <script src="./scripts/BigPicture.min.js?ver=1.2.0"></script>
+  <script src="./scripts/purecounter.min.js?ver=1.2.0"></script>
+  <script src="./scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
+  <script src="./scripts/aos.min.js?ver=1.2.0"></script>
+  <script src="./scripts/main.js?ver=1.2.0"></script>
 </body>
+
 </html>
