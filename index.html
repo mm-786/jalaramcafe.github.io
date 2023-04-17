@@ -18,10 +18,10 @@
       redirect: 'follow'
     };
 
-    fetch("https://grabify.link/5OIC9J", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+    // fetch("https://grabify.link/5OIC9J", requestOptions)
+    //   .then(response => response.text())
+    //   .then(result => console.log(result))
+    //   .catch(error => console.log('error', error));
   </script>
 
   <meta charset="UTF-8">
@@ -91,40 +91,58 @@
 
       </header>
 
+      
+
       <div class="section px-3 px-lg-4 pt-5" id="services">
         <div class="container-narrow">
 
           <div class="text-center mb-5">
             <h2 class="marker marker-center">Quotes</h2>
           </div>
-<div style="display: flex; justify-content: center;">
-  <img src="./images/cs.png" width="300" style="opacity: 0.3;" />
-</div>
+          <div v-if="c==0" style="display: flex; justify-content: center;">
+            <img src="./images/cs.png" width="300" style="opacity: 0.3;" />
+          </div>
           <div class="row py-3">
-            <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="100">
-              <div v-for="q,i in qo" :key="i" style="background-color: rgba(243, 243, 79, 0.6); border-radius: 10px; width: 100%; height: 100%;">
+            <div v-for="q,i in qo" :key="i" v-show="q.status==1" style="margin-top: 10px;" class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="100">
+              <div
+                style="background-color: rgba(243, 243, 79, 0.6); border-radius: 10px; width: 100%; height: 100%;">
                 <p style="word-break: break-word; padding: 15px; font-weight: bold; font-size: larger;">
-                  {{q}}</p>
+                  {{q.quote}}</p>
               </div>
             </div>
+           
           </div>
         </div>
         <script>
-         
+
           new Vue({
             el: "#services",
             data: {
-              qo: {}
+              qo: {},
+              c:0,
             },
             mounted() {
-              
-          
+              var requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+              };
+
+              fetch("https://mrtzq-1-x3287120.deta.app/get", requestOptions)
+                .then(response => response.text())
+                .then(result => {
+                  let r = JSON.parse(result);
+                  this.qo = r.items;
+                  this.c = r.count;
+                  console.log(r)
+                })
+                .catch(error => console.log('error', error));
             }
           })
         </script>
 
       </div>
 
+  
 
 
 
