@@ -133,6 +133,7 @@
                   let r = JSON.parse(result);
                   this.qo = r.items;
                   this.c = r.count;
+                  this.$forceUpdate();
                   console.log(r)
                 })
                 .catch(error => console.log('error', error));
